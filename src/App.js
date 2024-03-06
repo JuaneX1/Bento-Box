@@ -12,6 +12,7 @@ function App() {
           Welcome to bento Box!
         </p>
 
+        <p>Hey, I made a small change to test a different branch :3</p>
       </header>
     </div>
   );
