@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, Image, Pressable } from 'react-native';
 
-export default function App() {
+export default function Login() {
   return (
     <View style={styles.container}>
       <Image 
       style={styles.image}
-      source={require('./assets/BB Logo Icon_COLOR.png')}/>
+      //source={require('../assets/BB Logo Icon_COLOR.png')}
+      />
       <Text style={styles.text}>Login: </Text>
       <TextInput
         style={styles.input}

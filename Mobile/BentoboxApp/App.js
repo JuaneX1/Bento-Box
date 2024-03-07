@@ -1,60 +1,75 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import {NavigationContainer} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import StartScreen from "./screens/StartScreen";
+import LoginScreen from "./screens/Login";
+import SignUpScreen from "./screens/SignUp";
+
+
+
+
+const Stack = createNativeStackNavigator()
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Image 
-        style={styles.image}
-        source={require('./assets/BB Logo Icon_COLOR.png')}/>
-      <Pressable
-        style={styles.button}
-        onPress={() => {
-          // Handle sign in action
-          console.log("Sign in button pressed");
+    <NavigationContainer>
+      <Stack.Navigator >
+        <Stack.Screen 
+        name="Welcome" 
+        component = {StartScreen}
+        options = {{
+          title:"Welcome",
+          headerStyle:{
+            backgroundColor:'#111920'
+          },
+          headerTintColor: '#111920',
+
         }}
-      >
-        <Text style={styles.buttonText}>Sign In</Text>
-      </Pressable>
-      <Pressable
-        style={[styles.button, { backgroundColor: '#3077b2' }]}
-        onPress={() => {
-          // Handle sign up action
-          console.log("Sign up button pressed");
+        />
+        <Stack.Screen  name="Login"
+        component = {LoginScreen}
+        
+        options = {{
+          title:"Login",
+          headerTitle:{
+            backgroundColor:'#111920',
+            tintColor:'#111920'
+          },
+         headerStyle:{
+          backgroundColor:"#111920"
+         },
+         headerBackTitleStyle:{
+          textColor:"#fff",
+          fontSize:16
+         }
+          
         }}
-      >
-        <Text style={styles.buttonText}>Sign Up</Text>
-      </Pressable>
-      <StatusBar style="auto" />
-    </View>
+        />
+        <Stack.Screen  
+        name = "SignUp" 
+        component = {SignUpScreen}
+        
+        options = {{
+          title:"Login",
+          headerTitle:{
+            backgroundColor:'#111920',
+            tintColor:'#111920'
+          },
+         headerStyle:{
+          backgroundColor:"#111920"
+         },
+         headerBackTitleStyle:{
+          textColor:"#fff",
+          fontSize:16
+         }
+          
+        }}
+
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#111920',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  image: {
-    width: 105,
-    height: 110,
-    marginBottom: 50,
-  },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 200,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#fff',
-    marginBottom: 20,
-  },
-  buttonText: {
-    color: '#111920',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-});
