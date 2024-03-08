@@ -6,7 +6,7 @@ export default function Login() {
     <View style={styles.container}>
       <Image 
       style={styles.image}
-      //source={require('../assets/BB Logo Icon_COLOR.png')}
+      source={require('../assets/BB Logo Icon_COLOR.png')}
       />
       <Text style={styles.text}>Login: </Text>
       <TextInput
@@ -34,6 +34,32 @@ export default function Login() {
   );
 }
 
+/*handleClick = async () =>
+{
+  try
+    {
+    var obj = {login:global.loginName.trim(),password:global.password.trim()};
+    var js = JSON.stringify(obj);
+    const response = await fetch('https://cop4331-10.herokuapp.com/api/login',
+    {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
+    var res = JSON.parse(await response.text());
+    if( res.id <= 0 )
+    {
+    this.setState({message: "Usere/Password combination incorrect" });
+    }
+    else
+    {
+    global.firstName = res.firstName;
+    global.lastName = res.lastName;
+    global.userId = res.id;
+    this.props.navigation.navigate('Card');
+    }
+    }
+    catch(e)
+    {
+    this.setState({message: e.message });
+    }
+}*/
 const styles = StyleSheet.create({
   container: {
     flex: 1,

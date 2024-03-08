@@ -11,7 +11,7 @@ export default function StartScreen({navigation}) {
             <View style={styles.container}>
                 <Image 
                     style={styles.image}
-                    //source={require('../assets/BB Logo Icon_COLOR.png')}
+                    source={require('../assets/BB Logo Icon_COLOR.png')}
                     />
                 <Pressable
                     style={styles.button}

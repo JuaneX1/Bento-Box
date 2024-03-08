@@ -8,7 +8,14 @@ import LoginScreen from "./screens/Login";
 import SignUpScreen from "./screens/SignUp";
 
 
-
+function LogoTitle() {
+  return (
+    <Image
+      style={{ width: 50, height: 50 }}
+      source={require('./assets/BB Logo Icon_COLOR.png')}
+    />
+  );
+}
 
 const Stack = createNativeStackNavigator()
 
@@ -33,10 +40,7 @@ export default function App() {
         
         options = {{
           title:"Login",
-          headerTitle:{
-            backgroundColor:'#111920',
-            tintColor:'#111920'
-          },
+          headerTitle: (props) => <LogoTitle {...props} />,
          headerStyle:{
           backgroundColor:"#111920"
          },
