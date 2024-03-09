@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StartScreen from "./screens/StartScreen";
 import LoginScreen from "./screens/Login";
 import SignUpScreen from "./screens/SignUp";
+import LoginStack from './Navigation/LoginStack';
 
 
 function LogoTitle() {
@@ -25,30 +26,15 @@ export default function App() {
       <Stack.Navigator >
         <Stack.Screen 
         name="Welcome" 
-        component = {StartScreen}
+        component = {LoginStack}
         options = {{
           title:"Welcome",
+          headerShown:false,
           headerStyle:{
             backgroundColor:'#111920'
           },
           headerTintColor: '#111920',
 
-        }}
-        />
-        <Stack.Screen  name="Login"
-        component = {LoginScreen}
-        
-        options = {{
-          title:"Login",
-          headerTitle: (props) => <LogoTitle {...props} />,
-         headerStyle:{
-          backgroundColor:"#111920"
-         },
-         headerBackTitleStyle:{
-          textColor:"#fff",
-          fontSize:16
-         }
-          
         }}
         />
         <Stack.Screen  
@@ -57,6 +43,7 @@ export default function App() {
         
         options = {{
           title:"Login",
+          headerShown:false,
           headerTitle:{
             backgroundColor:'#111920',
             tintColor:'#111920'

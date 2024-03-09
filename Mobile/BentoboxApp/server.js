@@ -10,17 +10,17 @@ app.set('port', (process.env.PORT || 5000));
 app.use(cors());
 app.use(bodyParser.json());
 const path = require("path");
-/*
+
 const url = 'mongodb+srv://sonny:sonny@bigprojectstart.0bz0gkq.mongodb.net/?retryWrites=true&w=majority&appName=BigProjectStart';
 const { MongoClient, ObjectId } = require('mongodb');
 const client = new MongoClient(url);
 client.connect(console.log("mongodb connected"));
-*/
-require('dotenv').config();
+
+/*require('dotenv').config();
 const url = process.env.MONGODB_URI;
 const MongoClient = require('mongodb').MongoClient; 
 const client = new MongoClient(url);
-client.connect();
+client.connect();*/
 
 
 // Register endpoint
