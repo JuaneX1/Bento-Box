@@ -5,9 +5,9 @@ import * as React from 'react';
 export default function HomeScreen() {
     return(
         <View style={styles.container}>
-        <Text>{global.userId}</Text>
-        <Text>{global.loginName}</Text>
-        <Text>{global.firstName}</Text>
+        <Text style={styles.testText}>{global.userId}</Text>
+        <Text style={styles.testText}>{global.loginName}</Text>
+        <Text style={styles.testText}>{global.firstName}</Text>
         </View>
     );
 }
@@ -18,5 +18,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#111920',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    testText:{
+        color:"#fff"
     }
 });

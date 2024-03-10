@@ -6,18 +6,18 @@ import {Dimensions} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-const TopAnimeBox = ({ topAnime }) => {
+const CurrentSeason = ({ seasonAnime }) => {
    
     return (
         <View style={styles.container}>
             <Text
             style={styles.headerText}>
-                Most Popular
+                Winter {global.year}
             </Text>
              <FlatList
         keyExtractor={(item) => item.mal_id}
         horizontal={true}
-        data={topAnime}
+        data={seasonAnime}
         renderItem={({item}) =>(
                 <AnimeListing
                 anime={item}/>
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default TopAnimeBox;
+export default CurrentSeason;
