@@ -1,27 +1,35 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import { createNativeStackNavigator,createAppContainer } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import LoginScreen from "../screens/Login";
 import HomeScreen from '../screens/HomeScreen';
+import SearchScreen from '../screens/SearchScreen';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-function LoginStack() {
+function HomeStack() {
   return (
-    <NavigationContainer
-    independent={true}
-    >
-      <Stack.Navigator initialRouteName="Login" >
-        <Stack.Screen name="Home"  
+      <Tab.Navigator 
+      initialRouteName="Home" 
+      barStyle={{ backgroundColor: '#111920' }}
+      >
+        <Tab.Screen name="Home"  
         component={HomeScreen} 
         options={{
-            headerShown:false
-        }
-        }/>
-      </Stack.Navigator>
-    </NavigationContainer>
+            headerShown:true,
+            
+        }}/>
+         <Tab.Screen name="Discover"  
+        component={SearchScreen} 
+        options={{
+           headerTintColor:"#ffffff",
+           headerStyle:{
+            backgroundColor:"#111920"
+           },
+        }}/>
+      </Tab.Navigator>
   );
 }
 
-export default LoginStack;
+export default HomeStack;
  

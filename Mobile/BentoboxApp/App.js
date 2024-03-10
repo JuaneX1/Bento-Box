@@ -22,13 +22,27 @@ const Stack = createNativeStackNavigator()
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer
+    independent = {true}>
       <Stack.Navigator >
         <Stack.Screen 
         name="Welcome" 
-        component = {LoginStack}
+        component = {StartScreen}
         options = {{
           title:"Welcome",
+          headerShown:false,
+          headerStyle:{
+            backgroundColor:'#111920'
+          },
+          headerTintColor: '#111920',
+
+        }}
+        />
+        <Stack.Screen 
+        name="Login" 
+        component = {LoginStack}
+        options = {{
+          title:"Login",
           headerShown:false,
           headerStyle:{
             backgroundColor:'#111920'

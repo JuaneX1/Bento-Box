@@ -1,8 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, StyleSheet, Text, View, TextInput, Button, Image, Pressable } from 'react-native';
 import * as React from 'react';
-import Home from './HomeScreen';
-
+import HomeScreen from './HomeScreen';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import HomeStack from '../Navigation/HomeStack';
+import LoginStack from '../Navigation/LoginStack';
 
 global.loginName = '';
 global.password = '';
@@ -11,8 +14,8 @@ global.firstName = '';
 global.lastName = '';
 
 
-export default function Login({navigation}) {
-
+export default function Login() {
+  const navigation = useNavigation()
   handleClick = async () =>
 {
   try
@@ -28,8 +31,8 @@ export default function Login({navigation}) {
     var res = JSON.parse(await response.text());
 
     console.log("res");
-    
-    if( res.id <= 0 )
+    console.log(res.id);
+    if( res.id <= 0 || res.id == null)
     {
       console.log ("User/Password combination incorrect" );
     }
@@ -40,7 +43,7 @@ export default function Login({navigation}) {
       global.loginName = res.email;
      
       global.userId = res.id;
-      navigation.navigate(Home);
+      navigation.navigate('Home');
     }
   }
   catch(e)
@@ -86,7 +89,7 @@ global.password = val;
       <Pressable
         style = {styles.submitButton}
         onPress={() =>{
-          navigation.navigate('Home')
+          this.handleClick()
           }
         }
         //this.handleClick</View>

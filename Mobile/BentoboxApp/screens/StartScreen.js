@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from "./Login";
 import SignUpScreen from "./SignUp";
+import LoginStack from '../Navigation/LoginStack';
 
-export default function StartScreen({navigation}) {
+export default function StartScreen() {
+  const navigation = useNavigation()
     return (
             <View style={styles.container}>
                 <Image 
@@ -17,7 +19,7 @@ export default function StartScreen({navigation}) {
                     style={styles.button}
                     onPress={() => {
                     // Handle sign in action
-                    navigation.navigate(LoginScreen)
+                    navigation.navigate('Login')
                     console.log("Sign in button pressed");
                     }}
                 >
