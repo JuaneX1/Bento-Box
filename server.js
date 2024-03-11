@@ -23,6 +23,11 @@ const MongoClient = require('mongodb').MongoClient;
 const client = new MongoClient(url);
 client.connect();
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json'); // Path to your Swagger/OpenAPI specification file
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 // Register endpoint
 app.post('/api/register', async (req, res, next) => {
