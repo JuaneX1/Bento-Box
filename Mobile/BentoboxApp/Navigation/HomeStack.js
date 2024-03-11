@@ -20,8 +20,9 @@ function HomeStack() {
             
         }}/>
          <Tab.Screen name="Discover"  
-        component={SearchScreen} 
+        component={SearchScreen}
         options={{
+          headerShown:false,
            headerTintColor:"#ffffff",
            headerStyle:{
             backgroundColor:"#111920"

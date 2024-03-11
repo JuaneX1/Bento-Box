@@ -78,22 +78,25 @@ export default function SearchScreen() {
 
     return(
         <View style={styles.container}> 
-            <ScrollView
-            >
-                <TopAnimeBox
-                topAnime ={topAnime}
-                />
-                 <CurrentSeason
-                seasonAnime ={seasonAnime}
-                />
-                 <StudioGhibliList
-                ghibliAnime ={ghibliAnime}
-                />
-                <Text>{global.userId}</Text>
-                <Text>{global.loginName}</Text>
-                <Text>{global.firstName}</Text>
-            </ScrollView>
-        
+            <View style={styles.box}>
+                <Text style={styles.searchText}> Place SearchBar here</Text>
+            </View>
+                <ScrollView
+                >
+                    <TopAnimeBox
+                    topAnime ={topAnime}
+                    />
+                    <CurrentSeason
+                    seasonAnime ={seasonAnime}
+                    />
+                    <StudioGhibliList
+                    ghibliAnime ={ghibliAnime}
+                    />
+                    <Text>{global.userId}</Text>
+                    <Text>{global.loginName}</Text>
+                    <Text>{global.firstName}</Text>
+                </ScrollView>
+            
         </View>
     );
 }
@@ -104,5 +107,17 @@ const styles = StyleSheet.create({
       backgroundColor: '#111920',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    box:
+    {
+        backgroundColor: '#111920',
+        height:125,
+        alignItems:'center',
+        justifyContent: 'center',
+    },
+    searchText:{
+     
+        color:"#fff",
+        justifyContent:'center'
     }
 });
