@@ -104,7 +104,7 @@ app.use((req, res, next) => {
 // For Heroku deployment
 // Specify custom domain for production
 if (process.env.NODE_ENV === 'production') {
-    app.listen(PORT, 'www.bentobox.club', () => {
+    app.listen(PORT, 'https://www.bentobox.club', () => {
         console.log('Server listening on port ' + PORT);
     });
 } else {
