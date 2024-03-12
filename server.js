@@ -23,11 +23,12 @@ const MongoClient = require('mongodb').MongoClient;
 const client = new MongoClient(url);
 client.connect();
 
+/*
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json'); // Path to your Swagger/OpenAPI specification file
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
+*/
 
 // Register endpoint
 app.post('/api/register', async (req, res, next) => {
@@ -99,18 +100,18 @@ app.use((req, res, next) => {
     );
     next();
 });
-/*
+
 // For Heroku deployment
-// Server static assets if in production
+// Specify custom domain for production
 if (process.env.NODE_ENV === 'production') {
-    // Set static folder
-    app.use(express.static('frontend/build'));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    app.listen(PORT, 'www.bentobox.club', () => {
+        console.log('Server listening on port ' + PORT);
+    });
+} else {
+    // For local development
+    app.listen(PORT, () => {
+        console.log('Server listening on port ' + PORT);
     });
 }
-*/
-app.listen(PORT, () => {
-    console.log('Server listening on port ' + PORT);
-});
+
 
