@@ -18,16 +18,17 @@ client.connect(console.log("mongodb connected"));*/
 
 require('dotenv').config();
 const url = process.env.MONGODB_URI;
+console.log(url);
 const MongoClient = require('mongodb').MongoClient; 
 const client = new MongoClient(url);
 client.connect();
 
-const swaggerUi = require('swagger-ui-express');
+/*const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json'); // Path to your Swagger/OpenAPI specification file
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-
+*/
 // Register endpoint
 app.post('/api/register', async (req, res, next) => {
     const { first, last, login, email, password } = req.body;
@@ -109,6 +110,19 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 */
-app.listen(PORT, () => {
+
+// For Heroku deployment
+// Specify custom domain for production
+if (process.env.NODE_ENV === 'production') {
+    app.listen(PORT, 'www.bentobox.club', () => {
+        console.log('Server listening on port ' + PORT);
+    });
+} else {
+    // For local development
+    app.listen(PORT, () => {
+        console.log('Server listening on port ' + PORT);
+    });
+}
+/*app.listen(PORT, () => {
     console.log('Server listening on port ' + PORT);
-});
+});*/
